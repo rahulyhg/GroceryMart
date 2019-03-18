@@ -25,13 +25,13 @@ if($success == true)
 }
 else
 {
-	$result = mysqli_query($con, "SELECT * FROM users WHERE Email='$email' AND password='$password' AND role='Customer' AND not deleted;");
+	$result = mysqli_query($con, "SELECT * FROM users WHERE Email='$email' AND Password='$password' AND Role='Customer' AND not deleted;");
 	while($row = mysqli_fetch_array($result))
 	{
 	$success = true;
 	$user_id = $row['U_Id'];
 	$name = $row['Name_f'];
-	$role= $row['role'];
+	$role= $row['Role'];
 	}
 	if($success == true)
 	{
