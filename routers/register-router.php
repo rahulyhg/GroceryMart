@@ -4,7 +4,7 @@ $firstname = htmlspecialchars($_POST['firstname']);
 $lastname = htmlspecialchars($_POST['lastname']);
 $email = htmlspecialchars($_POST['email']);
 $password = htmlspecialchars($_POST['password']);
-$password = md5($password)
+$password = md5($password);
 $phone = $_POST['phone'];
 
 function number($length) {
@@ -31,7 +31,7 @@ else {
 	$c_id =$row["C_Id"];
 
 	$sql3 = "insert into user_ph values($c_id,$phone);";
-	$con->query($sql3)
+	$con->query($sql3);
 }
 
 

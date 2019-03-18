@@ -9,9 +9,9 @@ $result = mysqli_query($con, "SELECT * FROM users WHERE email='$email' AND passw
 while($row = mysqli_fetch_array($result))
 {
 	$success = true;
-	$user_id = $row['id'];
+	$user_id = $row['U_Id'];
 	$name = $row['Name_f'];
-	$role= $row['role'];
+	$role= $row['Role'];
 }
 if($success == true)
 {	
@@ -29,7 +29,7 @@ else
 	while($row = mysqli_fetch_array($result))
 	{
 	$success = true;
-	$user_id = $row['id'];
+	$user_id = $row['U_Id'];
 	$name = $row['Name_f'];
 	$role= $row['role'];
 	}

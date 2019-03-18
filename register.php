@@ -110,18 +110,18 @@ else{
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person prefix"></i>
-            <input name="name" id="firstname" type="text" data-error=".errorTxt2">
-            <label for="name" class="center-align">First Name</label>
+            <input name="firstname" id="firstname" type="text" data-error=".errorTxt2">
+            <label for="firstname" class="center-align">First Name</label>
 <div class="errorTxt2"></div>     
           </div>
         </div>
             <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person prefix"></i>
-            <input name="name" id="lastname" type="text" data-error=".errorTxt2">
-            <label for="name" class="center-align">Last Name</label>
+            <input name="lastname" id="lastname" type="text" data-error=".errorTxt7">
+            <label for="lastname" class="center-align">Last Name</label>
 
-			<div class="errorTxt2"></div>			
+			<div class="errorTxt7"></div>			
           </div>
         </div>
         <div class="row margin">
