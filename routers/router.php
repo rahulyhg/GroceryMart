@@ -2,15 +2,15 @@
 include '../includes/connect.php';
 $success=false;
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$email = $_POST['email'];
+$password = md5($_POST['password']);
 
-$result = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND password='$password' AND role='Administrator' AND not deleted;");
+$result = mysqli_query($con, "SELECT * FROM users WHERE email='$email' AND password='$password' AND role='Administrator' AND not deleted;");
 while($row = mysqli_fetch_array($result))
 {
 	$success = true;
 	$user_id = $row['id'];
-	$name = $row['name'];
+	$name = $row['Name_f'];
 	$role= $row['role'];
 }
 if($success == true)
@@ -25,12 +25,12 @@ if($success == true)
 }
 else
 {
-	$result = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND password='$password' AND role='Customer' AND not deleted;");
+	$result = mysqli_query($con, "SELECT * FROM users WHERE email='$email' AND password='$password' AND role='Customer' AND not deleted;");
 	while($row = mysqli_fetch_array($result))
 	{
 	$success = true;
 	$user_id = $row['id'];
-	$name = $row['name'];
+	$name = $row['Name_f'];
 	$role= $row['role'];
 	}
 	if($success == true)

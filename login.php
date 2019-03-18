@@ -55,14 +55,14 @@ else{
       <form method="post" action="routers/router.php" class="login-form" id="form">
         <div class="row">
           <div class="input-field col s12 center">
-            <p class="center login-form-text">Login for Food Ordering System</p>
+            <p class="center login-form-text">Login for Grocery Mart</p>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
-            <input name="username" id="username" type="text">
-            <label for="username" class="center-align">Username</label>
+            <input name="email" id="email" type="text">
+            <label for="email" class="center-align">Email</label>
           </div>
         </div>
         <div class="row margin">

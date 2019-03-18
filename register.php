@@ -102,16 +102,25 @@ else{
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
-            <input name="username" id="username" type="text"  data-error=".errorTxt1">
-            <label for="username" class="center-align">Username</label>
+            <input name="email" id="email" type="text"  data-error=".errorTxt1">
+            <label for="username" class="center-align">Email</label>
 			<div class="errorTxt1"></div>			
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person prefix"></i>
-            <input name="name" id="name" type="text" data-error=".errorTxt2">
-            <label for="name" class="center-align">Name</label>
+            <input name="name" id="firstname" type="text" data-error=".errorTxt2">
+            <label for="name" class="center-align">First Name</label>
+<div class="errorTxt2"></div>     
+          </div>
+        </div>
+            <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-social-person prefix"></i>
+            <input name="name" id="lastname" type="text" data-error=".errorTxt2">
+            <label for="name" class="center-align">Last Name</label>
+
 			<div class="errorTxt2"></div>			
           </div>
         </div>
