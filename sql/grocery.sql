@@ -32,41 +32,57 @@ Name varchar(20) NOT NULL,
 Manf_by varchar(20),
 PRIMARY KEY (I_id)) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO Item VALUES
+(1,"bottle","pearlpet"),
+(2,"bag","fabindia"),
+(3,"handwash","dettol"),
+(4,"colddrink","pepsi"),
+(5,"lays","fritolay");
+
+ALTER TABLE Item
+  MODIFY I_Id int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 CREATE TABLE Users(
-C_Id int(5) NOT NULL,
+U_Id int(5) NOT NULL,
 Name_f varchar(20) NOT NULL,
 Name_l varchar(20),
-Role varchar(20) NOT NULL,
+Email varchar(30) UNIQUE,
+Password varchar(30),
+Role varchar(20) NOT NULL DEFAULT "Customer",
 A_street varchar(50),
 A_city varchar(20),
 A_state varchar(20),
 A_PIN int(6),
 Membership_type varchar(10),
-Email varchar(30),
-PRIMARY KEY (C_Id)) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+verified tinyint(1) NOT NULL DEFAULT '0',
+deleted tinyint(4) NOT NULL DEFAULT '0',
+PRIMARY KEY (U_Id)) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO Users(C_Id,Name_f,Name_l,Role) VALUES
-(1,Admin1,NULL,Administrator),
-(2,Cust1,NULL,Customer),
-(3,Cust1,NULL,Customer),
-(4,Cust1,NULL,Customer),
-(5,Cust1,NULL,Customer);
+INSERT INTO Users(U_Id,Name_f,Name_l,Role) VALUES
+(1,"Admin1",NULL,"Administrator"),
+(2,"Cust1",NULL,"Customer"),
+(3,"Cust2",NULL,"Customer"),
+(4,"Cust3",NULL,"Customer"),
+(5,"Cust4",NULL,"Customer");
 
-CREATE TABLE Cust_Ph(
-C_Id int(5),
+ALTER TABLE Users
+  MODIFY U_Id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+CREATE TABLE User_Ph(
+U_Id int(5),
 Phone_no int(10),
-PRIMARY KEY (C_Id,Phone_no),
-FOREIGN KEY (C_Id) REFERENCES Users(C_Id)) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+PRIMARY KEY (U_Id,Phone_no),
+FOREIGN KEY (U_Id) REFERENCES Users(U_Id)) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE Card_details(
-C_Id int(5),
+U_Id int(5),
 Card_No int(12),
 Name_f varchar(20) NOT NULL,
 Name_l varchar(20) NOT NULL,
 Expiry_date date NOT NULL,
 Type varchar(10) NOT NULL,
-PRIMARY KEY (C_Id,Card_No),
-FOREIGN KEY (C_Id) REFERENCES Users(C_Id)) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+PRIMARY KEY (U_Id,Card_No),
+FOREIGN KEY (U_Id) REFERENCES Users(U_Id)) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE Store(
 S_Id int(5),
@@ -110,12 +126,12 @@ CREATE TABLE Orders(
 Order_Id int(5),
 Date_time timestamp,
 Amount int(7),
-C_Id int(5),
+U_Id int(5),
 Card_No int(12),
 D_Id int(5),
 delivery_review varchar(100),
 PRIMARY KEY (Order_Id),
-FOREIGN KEY (C_Id) REFERENCES Users(C_Id),
+FOREIGN KEY (U_Id) REFERENCES Users(U_Id),
 FOREIGN KEY (D_Id) REFERENCES Delivery_Person(D_Id)) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE Order_details(

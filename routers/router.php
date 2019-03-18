@@ -5,7 +5,7 @@ $success=false;
 $email = $_POST['email'];
 $password = md5($_POST['password']);
 
-$result = mysqli_query($con, "SELECT * FROM users WHERE email='$email' AND password='$password' AND role='Administrator' AND not deleted;");
+$result = mysqli_query($con, "SELECT * FROM users WHERE Email='$email' AND Password='$password' AND Role='Administrator' AND not deleted;");
 while($row = mysqli_fetch_array($result))
 {
 	$success = true;
@@ -25,7 +25,7 @@ if($success == true)
 }
 else
 {
-	$result = mysqli_query($con, "SELECT * FROM users WHERE email='$email' AND password='$password' AND role='Customer' AND not deleted;");
+	$result = mysqli_query($con, "SELECT * FROM users WHERE Email='$email' AND password='$password' AND role='Customer' AND not deleted;");
 	while($row = mysqli_fetch_array($result))
 	{
 	$success = true;

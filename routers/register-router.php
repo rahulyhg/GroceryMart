@@ -25,12 +25,12 @@ if($con->query($sql_check)==true){
 else {
 	$sql1 = "INSERT INTO users (Name_f, Name_l, Email, Password) VALUES ('$firstname','$lastname', '$email', '$password');";
 	$con->query($sql1);	
-	$sql2 = "SELECT c_id from users where username = $username; ";
+	$sql2 = "SELECT U_Id from users where Email = $email; ";
 
 	$row = mysqli_fetch_array($sql2);
-	$c_id =$row["C_Id"];
+	$U_Id =$row["U_Id"];
 
-	$sql3 = "insert into user_ph values($c_id,$phone);";
+	$sql3 = "insert into user_ph values('$U_Id','$phone');";
 	$con->query($sql3);
 }
 
