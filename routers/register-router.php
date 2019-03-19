@@ -4,7 +4,7 @@ $firstname = htmlspecialchars($_POST['firstname']);
 $lastname = htmlspecialchars($_POST['lastname']);
 $email = htmlspecialchars($_POST['email']);
 $password = htmlspecialchars($_POST['password']);
-$password = md5($password);
+// $password = md5($password);
 $phone = $_POST['phone'];
 
 function number($length) {

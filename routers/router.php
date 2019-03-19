@@ -3,7 +3,7 @@ include '../includes/connect.php';
 $success=false;
 
 $email = $_POST['email'];
-$password = md5($_POST['password']);
+$password = $_POST['password'];
 
 $result = mysqli_query($con, "SELECT * FROM users WHERE Email='$email' AND Password='$password' AND Role='Administrator' AND not deleted;");
 while($row = mysqli_fetch_array($result))
