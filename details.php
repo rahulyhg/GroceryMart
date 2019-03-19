@@ -1,14 +1,14 @@
 <?php
 include 'includes/connect.php';
-$user_id = $_SESSION['user_id'];
+print_r($_SESSION);
+$email = $_SESSION['email'];
 
-$result = mysqli_query($con, "SELECT * FROM users where id = $user_id");
+$result = mysqli_query($con, "SELECT * FROM Users where Email = '$email'");
 while($row = mysqli_fetch_array($result)){
-$name = $row['name'];	
-$address = $row['address'];
-$contact = $row['contact'];
-$email = $row['email'];
-$username = $row['username'];
+$firstname = $row['Name_f'];
+$lastname = $row['Name_l'];
+
+//$sql_address=mysqli_query($con,"Select address from User_ph where");
 }
 	if($_SESSION['customer_sid']==session_id())
 	{
@@ -139,7 +139,7 @@ $username = $row['username'];
                 </div>
             </div>
             </li>
-            <li class="bold"><a href="index.php" class="waves-effect waves-cyan"><i class="mdi-editor-border-color"></i> Order Food</a>
+            <li class="bold"><a href="index.php" class="waves-effect waves-cyan"><i class="mdi-editor-border-color"></i> Order Grocery</a>
             </li>
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
@@ -214,30 +214,30 @@ $username = $row['username'];
               </div>
 <div>
                 <div class="card-panel">
-                  <div class="row">
-                    <form class="formValidate" id="formValidate" method="post" action="routers/details-router.php" novalidate="novalidate"class="col s12">
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <i class="mdi-action-account-circle prefix"></i>
-                          <input name="username" id="username" type="text" value="<?php echo $username;?>" data-error=".errorTxt1">
-                          <label for="username" class="">Username</label>
-						  <div class="errorTxt1"></div>
-                        </div>
-                      </div>					
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <i class="mdi-action-account-circle prefix"></i>
-                          <input name="name" id="name" type="text" value="<?php echo $name;?>" data-error=".errorTxt2">
-                          <label for="name" class="">Name</label>
-						   <div class="errorTxt2"></div>
-                        </div>
-                      </div>
                       <div class="row">
                         <div class="input-field col s12">
                           <i class="mdi-communication-email prefix"></i>
                           <input name="email" id="email" type="email" value="<?php echo $email;?>" data-error=".errorTxt3">
                           <label for="email" class="">Email</label>
-						  <div class="errorTxt3"></div>
+              <div class="errorTxt3"></div>
+                        </div>
+                      </div>
+                  <div class="row">
+                    <form class="formValidate" id="formValidate" method="post" action="routers/details-router.php" novalidate="novalidate"class="col s12">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <i class="mdi-action-account-circle prefix"></i>
+                          <input name="Name_f" id="Name_f" type="text" value="<?php echo $firstname;?>" data-error=".errorTxt2">
+                          <label for="Name_f" class="">First_Name</label>
+						   <div class="errorTxt2"></div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <i class="mdi-action-account-circle prefix"></i>
+                          <input name="Name_l" id="Name_l" type="text" value="<?php echo $lastname;?>" data-error=".errorTxt2">
+                          <label for="Name_l" class="">Last_Name</label>
+               <div class="errorTxt2"></div>
                         </div>
                       </div>
                       <div class="row">
@@ -248,22 +248,8 @@ $username = $row['username'];
 						  <div class="errorTxt4"></div>
                         </div>
                       </div>
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <i class="mdi-action-account-circle prefix"></i>
-                          <input name="phone" id="phone" type="number" value="<?php echo $contact;?>" data-error=".errorTxt5">
-                          <label for="phone" class="">Contact</label>
-						  <div class="errorTxt5"></div>
-                        </div>
                       </div>					  
                       <div class="row">
-                        <div class="input-field col s12">
-                          <i class="mdi-action-home prefix"></i>
-                          <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6"><?php echo $address;?></textarea>
-                          <label for="address" class="">Address</label>
-						  <div class="errorTxt6"></div>
-                        </div>
-                        <div class="row">
                           <div class="input-field col s12">
                             <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
                               <i class="mdi-content-send right"></i>
@@ -296,8 +282,8 @@ $username = $row['username'];
   <footer class="page-footer">
     <div class="footer-copyright">
       <div class="container">
-        <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="#" target="_blank">Students</a> All rights reserved.</span>
-        <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="#">Students</a></span>
+        <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="#" target="_blank">Group 2</a> All rights reserved.</span>
+        <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="#">Group 2</a></span>
         </div>
     </div>
   </footer>

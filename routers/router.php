@@ -30,8 +30,10 @@ else
 	{
 	$success = true;
 	$user_id = $row['U_Id'];
-	$name = $row['Name_f'];
+	$lastname = $row['Name_l'];
+	$firstname = $row['Name_f'];
 	$role= $row['Role'];
+	$email = $row['Email'];
 	}
 	if($success == true)
 	{
@@ -39,7 +41,9 @@ else
 		$_SESSION['customer_sid']=session_id();
 		$_SESSION['user_id'] = $user_id;
 		$_SESSION['role'] = $role;
-		$_SESSION['name'] = $name;			
+		$_SESSION['email'] = $email;
+		$_SESSION['firstname'] = $firstname;
+		$_SESSION['lastname'] = $lastname;			
 		header("location: ../index.php");
 	}
 	else

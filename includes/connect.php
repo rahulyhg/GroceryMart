@@ -4,7 +4,7 @@ $servername = "localhost";
 $server_user = "root";
 $server_pass = "";
 $dbname = "grocery_db";
-$name = $_SESSION['name'];
+$email = $_SESSION['email'];
 $role = $_SESSION['role'];
 $con = new mysqli($servername, $server_user, $server_pass, $dbname);
 ?>
