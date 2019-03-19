@@ -1,17 +1,18 @@
 <?php
 include '../includes/connect.php';
-$user_id = $_SESSION['user_id'];
+// $email = $_SESSION['email'];
 
 
-$name = htmlspecialchars($_POST['name']);
-$username = htmlspecialchars($_POST['username']);
+// $name = htmlspecialchars($_POST['Name']);
+$firstname = htmlspecialchars($_POST['Name_f']);
+$lastname = htmlspecialchars($_POST['Name_l']);
 $password =  htmlspecialchars($_POST['password']);
-$phone = $_POST['phone'];
+//$phone = $_POST['phone'];
 $email = htmlspecialchars($_POST['email']);
-$address = htmlspecialchars($_POST['address']);
-$sql = "UPDATE users SET name = '$name', username = '$username', password='$password', contact=$phone, email='$email', address='$address' WHERE id = $user_id;";
+//$address = htmlspecialchars($_POST['address']);
+$sql = "UPDATE Users SET Name_f = '$firstname',Name_l='$lastname', Password='$password', Email='$email' WHERE Email = $email;";
 if($con->query($sql)==true){
-	$_SESSION['name'] = $name;
+	$_SESSION['email'] = $email;
 }
 header("location: ../details.php");
 ?>
